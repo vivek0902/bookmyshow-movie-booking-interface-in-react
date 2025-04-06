@@ -1,7 +1,8 @@
 
 # 🎟️ Seat Booking App
-
 A simple React-based seat selection and booking interface. Users can select available seats, and the total ticket price and number of selected tickets are calculated in real-time.
+
+Live Demo: https://vivek0902.github.io/bookmyshow-movie-booking-interface-in-react/
 
 ![image](https://github.com/user-attachments/assets/31664ffd-e278-47c8-920a-bfe7abca5553)
 
