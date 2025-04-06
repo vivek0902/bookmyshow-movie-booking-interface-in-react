@@ -37,7 +37,7 @@ function App() {
                           border: seat === null ? "" : "1px solid green",
                           backgroundColor:
                             !seat?.available && seat !== null
-                              ? "#eaeaea"
+                              ? "#c6c6c6"
                               : selected.includes(seat)
                               ? "#1ea83c"
                               : "white",
