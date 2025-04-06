@@ -1,12 +1,93 @@
-# React + Vite
+````markdown
+# 🎟️ Seat Booking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React-based seat selection and booking interface. Users can select available seats, and the total ticket price and number of selected tickets are calculated in real-time.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Dynamic seat layout rendered from a data file
+- Select and deselect available seats
+- Real-time price calculation based on seat types
+- Visual indication for selected and unavailable seats
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js (v14 or above)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/seat-booking-app.git
+   cd seat-booking-app
+   ```
+````
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
+
+## 🧠 Project Structure
+
+```
+/src
+  ├── App.js             # Main component handling UI and logic
+  ├── App.css            # Styling for the app
+  ├── data.js            # Contains seat layout and pricing info
+  └── index.js           # Entry point
+```
+
+## 🛠️ Customization
+
+### Seat Data Format (`data.js`)
+
+You can define rows, seat availability, and pricing. Example:
+
+```js
+const seatLayout = {
+  pricing: {
+    VIP: 300,
+    Regular: 150,
+  },
+  rows: [
+    {
+      rowType: "VIP",
+      rows: [
+        {
+          rowLabel: "A",
+          seats: [
+            { label: "A1", available: true, type: "VIP" },
+            { label: "A2", available: false, type: "VIP" },
+            null,
+            ...
+          ],
+        },
+      ],
+    },
+    ...
+  ],
+};
+
+export default seatLayout;
+```
+
+## 🎨 UI Overview
+
+- ✅ Green border: Available seats
+- ❌ Grey background: Unavailable seats
+- 🟩 Green background: Selected seats
+- 🧮 Bottom panel: Shows total price and number of selected seats
