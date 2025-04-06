@@ -1,4 +1,4 @@
-````markdown
+
 # 🎟️ Seat Booking App
 
 A simple React-based seat selection and booking interface. Users can select available seats, and the total ticket price and number of selected tickets are calculated in real-time.
@@ -24,7 +24,6 @@ A simple React-based seat selection and booking interface. Users can select avai
    git clone https://github.com/yourusername/seat-booking-app.git
    cd seat-booking-app
    ```
-````
 
 2. Install dependencies:
 
