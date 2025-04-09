@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import seatLayout from "./data";
 function App() {
-  const [rows, _] = useState(seatLayout.rows);
+  const rows = seatLayout.rows;
   const [selected, setSelected] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const handleSelect = (seat) => {
@@ -20,47 +20,49 @@ function App() {
     <div className="container">
       {rows.map((rowType, rowTypeIndex) => {
         return (
-          <div key={rowTypeIndex}>
-            <p>
+          <div key={rowTypeIndex} className="section">
+            <p className="section-title">
               {rowType.rowType} : ₹{seatLayout.pricing[rowType.rowType]}
             </p>
+            <hr />
             {rowType.rows.map((row, rowIndex) => {
               return (
-                <div className="rows" key={rowIndex}>
-                  <p className="rowLable">{row.rowLabel}</p>
-                  {row.seats.map((seat, seatIndex) => {
-                    return (
-                      <div
-                        key={seatIndex}
-                        className="seats"
-                        style={{
-                          border: seat === null ? "" : "1px solid green",
-                          backgroundColor:
-                            !seat?.available && seat !== null
-                              ? "#c6c6c6"
-                              : selected.includes(seat)
-                              ? "#1ea83c"
-                              : "white",
-                          cursor: seat?.available === true ? "pointer" : "",
-                        }}
-                        onClick={() => handleSelect(seat)}
-                      >
-                        <p
+                <div className="row" key={rowIndex}>
+                  <div className="rowLable">{row.rowLabel}</div>
+                  <div className="seat-group">
+                    {row.seats.map((seat, seatIndex) => {
+                      return (
+                        <div
+                          key={seatIndex}
+                          className={seat !== null ? "seats" : "seatsForNull"}
                           style={{
-                            color:
-                              !seat?.available || selected.includes(seat)
-                                ? "white"
-                                : "green",
+                            border: seat === null ? "" : "1px solid green",
+                            backgroundColor:
+                              !seat?.available && seat !== null
+                                ? "#c6c6c6"
+                                : selected.includes(seat)
+                                ? "#1ea83c"
+                                : "white",
+                            cursor: seat?.available === true ? "pointer" : "",
                           }}
-                          className="seatLable"
-                          onMouseDown={(e) => e.preventDefault()}
-                          onDoubleClick={(e) => e.preventDefault()}
+                          onClick={() => handleSelect(seat)}
                         >
-                          {seat?.label}
-                        </p>
-                      </div>
-                    );
-                  })}
+                          <p
+                            style={{
+                              color:
+                                !seat?.available || selected.includes(seat)
+                                  ? "white"
+                                  : "green",
+                            }}
+                            onMouseDown={(e) => e.preventDefault()}
+                            onDoubleClick={(e) => e.preventDefault()}
+                          >
+                            {seat?.label}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               );
             })}
@@ -68,9 +70,10 @@ function App() {
         );
       })}
 
-      <div>
-        <h2>Total Price: ₹ {totalPrice}</h2>
-        <h2>No of Tickets: {selected.length}</h2>
+      <div style={{ display: "flex" }}>
+        <h2>
+          Total Price: ₹ {totalPrice} | No of Tickets: {selected.length}
+        </h2>
       </div>
     </div>
   );
