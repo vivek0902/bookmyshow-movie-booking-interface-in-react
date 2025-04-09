@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./App.css";
+import screen from "./assets/screen.png";
+import indicator from "./assets/indicator.png";
 import seatLayout from "./data";
 function App() {
   const rows = seatLayout.rows;
@@ -18,6 +20,18 @@ function App() {
   };
   return (
     <div className="container">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginLeft: "190px",
+        }}
+      >
+        <h2>
+          Total Price: ₹ {totalPrice} | No of Tickets: {selected.length}
+        </h2>
+      </div>
       {rows.map((rowType, rowTypeIndex) => {
         return (
           <div key={rowTypeIndex} className="section">
@@ -69,11 +83,28 @@ function App() {
           </div>
         );
       })}
-
-      <div style={{ display: "flex" }}>
-        <h2>
-          Total Price: ₹ {totalPrice} | No of Tickets: {selected.length}
-        </h2>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginTop: "90px",
+          marginLeft: "190px",
+        }}
+      >
+        <img src={screen} alt="" style={{ width: "350px" }} />
+        <p>All eyes this way please!</p>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginTop: "40px",
+          marginLeft: "190px",
+        }}
+      >
+        <img src={indicator} alt="" style={{ width: "350px" }} />
       </div>
     </div>
   );

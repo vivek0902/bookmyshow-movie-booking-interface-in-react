@@ -1,6 +1,6 @@
 .container {
   max-width: 90%; /* or a fixed size like 900px */
-  margin: 50px auto;
+  margin: 20px auto;
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
