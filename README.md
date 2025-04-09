@@ -4,7 +4,7 @@ A simple React-based seat selection and booking interface. Users can select avai
 
 Live Demo: https://vivek0902.github.io/bookmyshow-movie-booking-interface-in-react/
 
-![image](https://github.com/user-attachments/assets/31664ffd-e278-47c8-920a-bfe7abca5553)
+![image](https://github.com/user-attachments/assets/c445e712-564d-4a19-bcfc-f2d1a8f604b3)
 
 ## ✨ Features
 
